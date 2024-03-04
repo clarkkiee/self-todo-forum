@@ -25,7 +25,7 @@ function Postbox({ userdata }) {
   });
 
   return (
-    <div className="relative mx-auto bg-purple rounded-xl p-8">
+    <div className="relative mx-auto bg-red-100 rounded-xl p-8">
       <Formik
         initialValues={{
           title: "",
