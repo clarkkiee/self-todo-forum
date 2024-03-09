@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
 
 app.use("/api", loginController);
 app.use("/api", registerController);
-app.use("/api", dashboardController);
+app.use("/api/dashboard", dashboardController);
 app.use("/api/communities", communitiesController);
 
 app.listen(port, () => {

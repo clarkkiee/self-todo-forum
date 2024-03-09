@@ -12,8 +12,9 @@ const JWTParse = (token) => {
   );
   const parsedPayload = JSON.parse(jsonPayload);
   const payload = {
-    userId: parsedPayload.id,
+    id: parsedPayload.id,
     username: parsedPayload.username,
+    fullname: parsedPayload.fullname,
     expires: parsedPayload.exp,
   };
 

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import * as yup from "yup";
 
-function Postbox({ userdata }) {
+function EditPostBox({ userdata }) {
   const handlePost = async (postData) => {
     const postDataFixed = {
       title: postData.title,
@@ -13,11 +13,11 @@ function Postbox({ userdata }) {
       authorId: userdata.id,
     };
 
-    const post = await axios.post(
-      "//localhost:8000/api/communities/create-post",
-      postDataFixed,
-      { withCredentials: true }
-    );
+    // const post = await axios.post(
+    //   "//localhost:8000/api/communities/create-post",
+    //   postDataFixed,
+    //   { withCredentials: true }
+    // );
   };
 
   const postSchema = yup.object().shape({
@@ -26,7 +26,7 @@ function Postbox({ userdata }) {
   });
 
   return (
-    <div className="relative mx-auto bg-purple rounded-xl p-8">
+    <div className="z-[100] bg-purple rounded-xl p-8">
       <Formik
         initialValues={{
           title: "",
@@ -106,4 +106,4 @@ function Postbox({ userdata }) {
   );
 }
 
-export default Postbox;
+export default EditPostBox;

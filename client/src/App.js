@@ -5,6 +5,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Communities from "./pages/Communities";
+import PostsByUser from "./pages/PostsByUser";
+import EditPost from "./pages/EditPost";
 
 function App() {
   const router = createBrowserRouter([
@@ -27,6 +29,14 @@ function App() {
     {
       path: "/communities",
       element: <Communities />,
+    },
+    {
+      path: "/user",
+      element: <PostsByUser />,
+    },
+    {
+      path: "/edit",
+      element: <EditPost />,
     }
   ]);
 

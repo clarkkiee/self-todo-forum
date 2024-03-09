@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
 }
 
 datasource db {
@@ -14,6 +15,7 @@ model User {
   username String @unique
   password String
   posts Post[]
+  likedPost Likes[]
 }
 
 model Post {
@@ -25,4 +27,14 @@ model Post {
   updatedAt DateTime @updatedAt
   author User @relation(fields: [authorId], references: [id])
   authorId Int
+  likes Likes[]
+}
+
+model Likes {
+  id Int @id @default(autoincrement())
+  userId Int
+  postId Int
+  user User @relation(fields: [userId], references: [id])
+  post Post @relation(fields: [postId], references: [idPost])
+  @@unique([userId, postId])
 }
