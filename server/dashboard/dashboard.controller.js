@@ -33,8 +33,6 @@ router.get("/", async (req, res) => {
     posts: getUserAllPosts,
   };
 
-  // console.log(payload);
-
   res.send(payload);
 });
 
@@ -47,8 +45,6 @@ router.delete("/delete", async (req, res) => {
       postId: parseInt(req.query.postId),
     },
   });
-
-  console.log(existsLike.length);
 
   if (existsLike.length > 0) {
     await prisma.likes.deleteMany({
@@ -66,7 +62,6 @@ router.delete("/delete", async (req, res) => {
       likes: true,
     },
   });
-  // MASALAH KETIKA POSTINGAN SUDAH ADA LIKES JADI ERROR KALO MAU HAPUS
 
   res.send("Delete post successfully");
 });
